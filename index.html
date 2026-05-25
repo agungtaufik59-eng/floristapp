@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>FloristApp - Management System</title>
+  
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4f46e5">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #f8fafc; /* Warna background FloristApp */
+      overflow: hidden; /* Mencegah scroll ganda */
+    }
+
+    .app-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-wrapper">
+    <iframe src="https://script.google.com/macros/s/AKfycbzFLQ15qTMXNFGRaU3_fJc_l1839kH7a1XV2ZwKaJI_rXB4LaovvC3LCmZz8YMv_bwcoQ/exec" allow="fullscreen"></iframe>
+  </div>
+  
+  <script>
+    // Daftarkan Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('SW terdaftar!', reg.scope))
+          .catch(err => console.log('SW gagal!', err));
+      });
+    }
+  </script>
+</body>
+</html>
